@@ -1,6 +1,55 @@
-.banner{
-    background-color: aquamarine;
-    background-size: 200;
+* {
+    text-decoration: none;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #242131 ;
+    color: antiquewhite;
+    font-family: 'Courier New', Courier, monospace;
+  }  
+
+.banner {
+    background-color: rgb(24, 30, 48);
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: dashed;
+}
+
+.banner nav {
+    display: flex;
     position: relative;
-    margin-top: 200px;
+    border-width: 0;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.banner a {
+    color: rgb(98, 141, 221);
+    font-size: large;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 15px;
+    border-style: outset;
+    background-color: #242131;
+    margin-left: 30px;
+    align-items: center;
+} 
+
+.banner a:hover {
+    color: aliceblue;
+    transition-duration: 0.3s;
+}
+
+.banner h1 {
+    position: absolute;
+    padding-right: 160vh;
+}
+
+.lowbar{
+    background-color: rgb(71, 71, 139);
 }
