@@ -1,5 +1,6 @@
 * {
     text-decoration: none;
+    box-sizing: border-box;
 }
 
 html, body {
@@ -10,6 +11,7 @@ html, body {
     font-family: 'Courier New', Courier, monospace;
   }  
 
+
 .banner {
     background-color: rgb(24, 30, 48);
     height: 50px;
@@ -17,6 +19,7 @@ html, body {
     justify-content: center;
     align-items: center;
     border-style: dashed;
+    z-index: 2;
 }
 
 .banner nav {
@@ -26,6 +29,7 @@ html, body {
     justify-content: center;
     align-items: center;
     list-style: none;
+    z-index: 2;
 }
 
 .banner a {
@@ -38,6 +42,7 @@ html, body {
     background-color: #242131;
     margin-left: 30px;
     align-items: center;
+    z-index: 2;
 } 
 
 .banner a:hover {
@@ -48,16 +53,13 @@ html, body {
 .banner h1 {
     position: absolute;
     padding-right: 160vh;
-}
-
-.lowbar{
-    background-color: rgb(71, 71, 139);
+    z-index: 1;
 }
 
 .sidebar-main{
     background-color: rgb(211, 106, 65);
     display: flex;
-    width: 500px;
+    max-width: 500px;
     height: 700px;
     border-radius: 10px;
     border-style: outset;
@@ -77,4 +79,31 @@ html, body {
     height: 250px;
     border-style: outset;
     border-color:rgb(148, 132, 112);
+    color: rgb(24, 30, 48);
+}
+
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 100%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%; max-width: 700px;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+    border: 1px solid red;
+  }
+
+.row::after {
+content: "";
+clear: both;
+display: table;
 }
