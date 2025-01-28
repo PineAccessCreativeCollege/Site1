@@ -37,13 +37,24 @@ html, body {
     font-size: large;
     padding-left: 5px;
     padding-right: 5px;
-    border-radius: 15px;
+    border-radius: 10%;
     border-style: outset;
     background-color: #242131;
-    margin-left: 30px;
+    margin-left: 25px;
     align-items: center;
     z-index: 2;
-} 
+}
+
+.icon{
+    visibility: visible;
+    border-style: none;
+    border-width: 0;
+    position: absolute;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
+    left: 10px;
+    top: 5.6vh;
+}
 
 .banner a:hover {
     color: aliceblue;
@@ -57,7 +68,7 @@ html, body {
 }
 
 .sidebar-main{
-    background-color: rgb(211, 106, 65);
+    background-color: antiquewhite;
     display: flex;
     max-width: 500px;
     height: 700px;
@@ -73,10 +84,12 @@ html, body {
 }
 
 .sidebar-content p {
-    background-color: antiquewhite;
+    background-color: rgb(236, 222, 204);
+    padding: 4px;
     border-radius: 15px;
-    width: 450px;
-    height: 250px;
+    max-width: 475px;
+    min-width: none;
+    height: 110cqw;
     border-style: outset;
     border-color:rgb(148, 132, 112);
     color: rgb(24, 30, 48);
@@ -107,3 +120,28 @@ content: "";
 clear: both;
 display: table;
 }
+
+@media only screen and (max-width: 1200px) {
+  }
+
+@media only screen and (max-width: 800px) {
+
+    [class*="col-"] {
+        float: left;
+        padding: 15px;
+        border: 1px solid red;
+        flex-direction: column;
+    }
+
+
+    .col-9{
+        width: 100%;
+        order: 2;
+    }
+    .sidebar-main{
+        width: 100%;
+    }
+    .icon{
+        visibility: hidden;
+    }
+  }
