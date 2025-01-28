@@ -110,21 +110,23 @@ html, body {
     height: fit-content;
     border-radius: 10px;
     border-style: outset;
-    border-color: antiquewhite;
+    border-color: antiquewhite;  
 }
 
 .page-content{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
     margin: 20px;
+    justify-content: center;
+    grid-auto-flow: dense;
 }
 
-.page-content p {
+.page-content a {
+    box-sizing: border-box;
     background-color: rgb(236, 222, 204);
-    padding: 4px;
     border-radius: 15px;
-    width: 100%;
-    height: fit-content;
+    max-width: 625px;
     border-style: outset;
     border-color:rgb(148, 132, 112);
     color: rgb(24, 30, 48);

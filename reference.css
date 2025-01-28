@@ -1,5 +1,4 @@
 * {
-    text-decoration: none;
     color: #181e30;
     box-sizing: border-box;
 }
@@ -12,6 +11,8 @@ html, body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-image: url(asssets/Website\ Background.png);
     background-size: contain;
+    max-width: 100%;
+    max-height: 100%;
 }  
 
 
@@ -67,73 +68,54 @@ html, body {
     transition-duration: 0.3s;
 }
 
-.banner h1 {
-    position: absolute;
-    padding-right: 160vh;
-    z-index: 1;
-}
-
-.sidebar-main{
-    background-color: antiquewhite;
-    display: flex;
-    max-width: 650px;
-    height: fit-content;
-    min-height: 250px;
-    border-radius: 10px;
-    border-style: outset;
-    border-color: antiquewhite;
-}
-
-.sidebar-content{
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-}
-
-.sidebar-content p {
-    background-color: rgb(236, 222, 204);
-    padding: 4px;
-    border-radius: 15px;
-    max-width: 625px;
-    min-width: none;
-    height: fit-content;
-    border-style: outset;
-    border-color:rgb(148, 132, 112);
-    color: rgb(24, 30, 48);
-}
-
 .page-content-main{
     background-color: antiquewhite;
     display: flex;
-    max-width: 1400px;
+    width: 98vw;
     min-height: 700px;
-    height: fit-content;
+    height: 100%;
     border-radius: 10px;
     border-style: outset;
     border-color: antiquewhite;
+    
 }
 
 .page-content{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 33vw 33vw 33vw;
+    grid-template-rows: auto;
     margin: 20px;
+    justify-content: center;
+    grid-auto-flow: dense;
 }
 
 .page-content p {
+    padding: 25px;
+    box-sizing: border-box;
     background-color: rgb(236, 222, 204);
-    padding: 4px;
     border-radius: 15px;
-    width: 100%;
-    height: fit-content;
+    width: 58vh;
     border-style: outset;
     border-color:rgb(148, 132, 112);
     color: rgb(24, 30, 48);
 
 }
 
-.col-9{
-    float: left;
+.page-content p:hover{
+    padding: 25px;
+    box-sizing: border-box;
+    background-color: rgb(236, 222, 204);
+    border-radius: 15px;
+    height: 102%;
+    width: 60vh;
+    height:calc();
+    border-style: outset;
+    border-color:rgb(107, 95, 81);
+    color: rgb(24, 30, 48);
+    z-index: 5;
+
 }
+
 .col-10{
     float: right;
 }
@@ -151,7 +133,6 @@ html, body {
 .col-3 {width: 100%;}
 .col-9 {width: 25%;}
 .col-10 {width: 75%;}
-
 
 [class*="col-"] {
     float: left;
