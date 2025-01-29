@@ -105,33 +105,33 @@ html, body {
 .page-content-main{
     background-color: antiquewhite;
     display: flex;
-    max-width: 1400px;
     min-height: 700px;
-    height: fit-content;
+    height: 100%;
     border-radius: 10px;
     border-style: outset;
-    border-color: antiquewhite;  
+    border-color: antiquewhite;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 .page-content{
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    margin: 20px;
-    justify-content: center;
-    grid-auto-flow: dense;
+    display: flex;
+    flex-direction: row;
 }
 
 .page-content a {
-    box-sizing: border-box;
-    background-color: rgb(236, 222, 204);
-    border-radius: 15px;
-    max-width: 625px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vh;
+    height: 50vh;
+    margin: 50px;
+    border-radius: 50%;
     border-style: outset;
-    border-color:rgb(148, 132, 112);
-    color: rgb(24, 30, 48);
-
+    border-width: 10px;
 }
+
 
 .col-9{
     float: left;
@@ -167,7 +167,10 @@ display: table;
 }
 
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1500px) {
+    .page-content{
+        flex-direction: column;
+    }
   }
 
 @media only screen and (max-width: 800px) {
@@ -180,6 +183,21 @@ display: table;
         float: left;
         padding: 15px;
     }
+
+    .page-content{
+        flex-direction: column;
+    }
+
+    .page-content a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 45vh;
+        height: 45vh;
+        margin: 50px;
+        border-radius: 50%;
+    }
+
 
     html, body {
         margin: 0;
