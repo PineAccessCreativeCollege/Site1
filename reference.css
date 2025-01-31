@@ -125,7 +125,7 @@ display: table;
     visibility: hidden;
     border-style: none;
     border-width: 0;
-    position: relative;
+    position: absolute;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     letter-spacing: 10px;
@@ -184,7 +184,7 @@ display: table;
         grid-template-columns: repeat(2, 1fr);
     }
     .icon {
-        visibility: visible;
+        visibility: hidden;
 }
 
 /* Media query for desktops */

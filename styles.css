@@ -56,9 +56,10 @@ html, body {
     position: absolute;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
-    top: 5.4vh;
-    letter-spacing: 10px;
-    text-indent: 10px;
+    left: 10px;
+    top: 5px;
+    letter-spacing: 5px;
+    z-index: 3;
 }
 
 .banner a:hover {
