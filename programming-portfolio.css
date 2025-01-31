@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #242131 ;
+    color: antiquewhite;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}  
+
+.column-1{
+    width: 25vw;
+}
+
+.sidebar{
+    background-color: blue;
+    min-height: 500px;
+}
+
+.column-2{
+    width: 75vw;
+}
+.page-content{
+    background-color: blue;
+    min-height: 500px;
+}
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+    border: 5px solid red;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: inline-block;
+    }
