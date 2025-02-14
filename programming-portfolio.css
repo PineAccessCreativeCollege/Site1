@@ -1,25 +1,26 @@
 *{
-    padding: 0;
-    margin: 0;
+    padding: 1;
+    margin: 1;
     box-sizing: border-box;
 }
 
 html, body, footer {
-    margin: 0;
-    padding: 0;
-    background-color: #242131 ;
+    margin: 1;
+    padding: 1;
+    background-color: #beb7db ;
     color: antiquewhite;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .banner {
     color: antiquewhite;
-    background-color: #3aa764;
+    background-color: #3a5ca7;
     padding: 20px;
     text-align: center;
     height: 20vh;
     font-size: 24px;
     grid-column: span 12;
+    border-bottom: #db821b 2px solid;
 }
 banner-content {
     padding: 20vh;
@@ -38,16 +39,74 @@ banner-content {
 }
 
 .column-1{
-    grid-column: span 4;
-    height: 80vh;
-    background-color: #3aa764;
+    display: none;
+    visibility: hidden;
+    background-color: #3a5ca7;
+    z-index: 0;
+    columns: span 0;
+}
+
+.column-2{
+    grid-column: span 12;
+    height: 100vh;
+    background-color: #1e325e;
+    z-index: 0;
+}
+
+.page-content {
+    padding: 15px;
+    margin: 15px;
+    border-radius: 10px;
+    border: 4px dashed antiquewhite;
+    width: 90vw;
+    grid-template-columns: repeat(12, minmax(12, 1fr));
+}
+
+.python{
+    grid-column: span 6;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 10px;
+    border: 4px dashed antiquewhite;
+    width: inherit;
+    height: fit-content;
 }
 
 footer{
-    background-color: #2c834e;
+    background-color: #2a7a49;
     color: antiquewhite;
     text-align: center;
-    min-height: 70px;
+    height: 5%;
     margin: 0;
     padding: 0;
+    grid-column: span 12;
+    z-index: 2;
+}
+
+.Title{
+    color: antiquewhite;
+    font-size: 22px;
+    text-align: left;
+}
+
+@media screen and (min-width : 768px){
+    .column-1{
+        display: grid;
+        grid-column: span 4;
+        height: 100%;
+        border-right: #242131 2px solid;
+    }
+
+    .column-2{
+        display: grid;
+        grid-column: span 8;
+    }
+
+    .banner{
+        
+    }
+
+    footer{
+        grid-column: span 12;
+    }
 }

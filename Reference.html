@@ -3,56 +3,369 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Sillyness</title>
-    <link rel="stylesheet" href="Reference.css">
-    <script src="https://kit.fontawesome.com/01ea53be81.js" crossorigin="anonymous"></script>
-    <style>
-        
-    </style>
+    <link rel="stylesheet" href="reference.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <title>Document</title>
 </head>
 <body>
-
     <div class="row">
-        <div class="image-background"></div>
-        <div class="col-3">
-            <div class="banner">
-
-                <div class="banner-content">   
-                    
-                    <a class="icon" href="sitemap.html">PINENET</a>
-
-                    <a href="index.html">Home</a>
-        
-                    <a href="Bio.html">Bio</a>
-        
-                    <div class="dropdown">
-                        <a href="#" class="dropbtn">Portfolio</a>
-                        <div class="dropdown-content">
-                            <a href="programming-portfolio.html">Programming</a>
-                        </div>
-                    </div>
-        
-                    <a href="Contact.html">Contact</a>
-                    
-                    
-                </div>
+        <div class="banner">
+            <div class="banner-content">
+                <h1 class="Title">Welcome to Syds programming portfolio</h1>
             </div>
         </div>
-      
-            <h1 style="padding-left: 30px; text-decoration: underline;">Welcome To the <span style="text-decoration: line-through;">boring</span> Reference page</h1>
-                <div class="page-content-main">
-                    <div class="page-content">
-                        <p><span style="font-size: x-large;">Image Reference</span> <br>
-                        Background Images- <a href="https://uk.pinterest.com/pin/1059401512339423579/" style="text-decoration: underline;">Mobile Background</a>,
-                        <a href="https://static.wikia.nocookie.net/maquia/images/6/63/Dorail03.png/revision/latest/scale-to-width-down/1000?cb=20230211040500" style="text-decoration: underline;">Desktop Background</a> (This was upscaled)</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore saepe ratione molestias assumenda autem corrupti ex? Magni vero quod repellendus quis totam repellat odio fuga officia hic. Culpa quo, magnam quos ex voluptate animi natus maiores dolorum qui perspiciatis minima aut eligendi iste? Aperiam maiores hic soluta ut officiis porro ab pariatur, cupiditate itaque culpa ipsa illo odio vel iste, fugit, perspiciatis beatae unde voluptatibus maxime quia recusandae debitis. Odio molestiae atque obcaecati, cumque libero praesentium doloremque eum optio quos veniam accusamus in quidem dolor delectus ullam explicabo. Odit error in et quod excepturi corrupti libero sapiente incidunt fugit, aliquam, velit, quisquam assumenda ullam mollitia.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, veniam voluptate! Consectetur non odio cupiditate expedita, fuga itaque, quam beatae, officiis a voluptas nulla voluptates? Blanditiis neque hic vel, atque dolor veritatis, fugit culpa mollitia nulla illum, distinctio totam voluptatibus! Voluptatem ut et voluptates fugiat exercitationem ullam, veniam cupiditate maxime nam corporis, rem illum at, nostrum ipsum! Porro at minus qui earum laboriosam? Quod quia pariatur nemo perspiciatis itaque dolor maiores voluptates quam sit eaque natus corrupti, necessitatibus laboriosam cumque explicabo modi magni illo ad molestiae suscipit repellendus. Impedit aut voluptatum laboriosam id maiores voluptatibus, a fugit quis deserunt aliquid provident in natus ad atque.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur vitae ipsam, quia delectus ipsa impedit, veritatis alias omnis quas explicabo ab cumque esse velit earum nulla a voluptas! Suscipit illum nostrum iusto dolorem deserunt a! Asperiores ipsum consequuntur animi, accusantium corrupti dicta culpa incidunt fugiat quo magnam, facilis necessitatibus atque quibusdam rem nostrum molestias. Ipsam voluptate sed repellat alias quia eum officiis natus iste ad voluptas, in aliquam assumenda facilis nesciunt porro rem reiciendis. Omnis rem debitis quod harum nemo consequatur. Quasi incidunt pariatur quod id! Exercitationem autem dicta id recusandae velit. Error atque culpa consequatur eos, modi fugiat. Officiis dolorem cum obcaecati commodi tenetur!</p>
-                        <p></p>
-                        <p></p>
-                    </div>
-                </div>
 
+        <div class="column-1">
+            <div class="sidebar">
+
+            </div>
+        </div>
+        <div class="column-2">
+            <div class="page-content">
+                <pre><code class="python">
+import customtkinter as ctk
+from tkinter import PhotoImage, simpledialog, messagebox
+from PIL import Image, ImageTk
+import Login
+import pandas as pd
+
+class Main(ctk.CTkFrame):
+    def __init__(self, master, width = 500, height = 800, corner_radius = None, border_width = None, bg_color = "transparent", fg_color = None, border_color = None, background_corner_colors = None, overwrite_preferred_drawing_method = None, **kwargs):
+        super().__init__(master, width, height, corner_radius, border_width, bg_color, fg_color, border_color, background_corner_colors, overwrite_preferred_drawing_method, **kwargs)
+        
+        ######
+        #Root Window Settings
+        ######
+        
+        self.logged_in = False
+        self.user_UUID = "None"
+        
+        self.profile_window = None
+        
+        def on_close():
+            print("Killing Window")
+            self.master.destroy()
+            
+        def open_profile_window():
+            if self.profile_window is None or not self.profile_window.winfo_exists():
+                print("Opening Profile Window")
+                self.profile_window = ProfileWindow(self)
+                self.profile_window.protocol("WM_DELETE_WINDOW", self.on_profile_close)
+            else:
+                print("Profile window already open")
+                self.profile_window.focus()
+            
+        self.grid_columnconfigure(0, weight=1)
+        self.grid_columnconfigure(1, weight=0)
+        
+        self.draggable = DraggableWindow(self.master)
+        
+        ##FRAMES
+
+        top_bar = ctk.CTkFrame(self, height=90, bg_color="transparent")#fg_color="transparent"
+        pokemon_profile = ctk.CTkFrame(self, height=250, width=300, bg_color="transparent")
+        search_results_f = ctk.CTkScrollableFrame(self, height=250, width=150, bg_color="transparent")
+        current_party = ctk.CTkFrame(self, height=250, bg_color="transparent")
+        
+        ##IMAGES
+        x_imagemage_path = "Red_X.png"
+        pill_image = Image.open(x_imagemage_path).resize((25,25))
+        XImage = ImageTk.PhotoImage(pill_image)
+        
+        ##BUTTONS
+        close_button = ctk.CTkButton(top_bar, text=None, width=70, image=XImage, bg_color="transparent",
+                                    fg_color="transparent", text_color="red", hover=None, command=on_close)
+        
+        profile_button = ctk.CTkButton(top_bar, width=50, height=50, text=None, 
+                                    fg_color="grey", hover=None, corner_radius=25, 
+                                    border_width=0, command=open_profile_window)
+        
+        
+        top_bar.bind("<ButtonPress-1>", self.draggable.start_drag)  # When mouse button is pressed
+        top_bar.bind("<B1-Motion>", self.draggable.do_drag)  # When mouse is moved with button pressed
+        
+        ##ENTRYS
+        self.search_box = ctk.CTkEntry(self, width=400, height=50, placeholder_text="Enter a Pokemon name or ID")
+        
+        ##LAYOUT
+        top_bar.grid(row=0, column=0, sticky="ew")
+        close_button.grid(row=0, column=0, sticky="w", padx=(0,370))
+        profile_button.grid(row=0, column=1, sticky="e", pady=10, padx=0)
+        self.search_box.grid(row=1, column=0, pady=20)
+        pokemon_profile.grid(row=2, column=0, sticky="w", padx=10)
+        search_results_f.grid(row=2, column=0, sticky="e", padx=10)
+        current_party.grid(row=3, column=0, sticky="ew", padx=10, pady=20)    
+        
+        ##A simple algorithm for filling the buttons up inside the users party/ should
+        #make it easier to shift to a class based system for the buttons which should
+        #let them be changed on the fly and after login.
+        iterated_row = 0
+        iterated_column = 0
+        
+        for i in range(6):
+            i_poke_slot = 'pokemon_slot_' + str(i)
+            i_poke_slot = ctk.CTkButton(current_party, height=140, text=None)
+            if i == 3:
+                iterated_row = 1
+                iterated_column = 0
+            i_poke_slot.grid(row=iterated_row, column=iterated_column, padx=10, pady=10)
+            iterated_column+=1
+            
+            
+        ##An simpler algorithm for filling the search results frame with buttons
+        for i in range(10):
+            i_search_slot = 'search_result_' + str(i)
+            i_search_slot = ctk.CTkButton(search_results_f, text=None)
+            
+            i_search_slot.grid(row=i, column=0, padx=10, pady=10)
+        
+    def on_profile_close(self):
+        print("Profile window closed")
+        self.profile_window.destroy()
+        self.profile_window = None
+        
+    def get_username(self):
+        return self.search_box.get()
+    
+    def send_login_register_commands(self, username, password, type):
+        print(self.logged_in, self.user_UUID)
+        if type == "login":
+            self.logged_in, self.user_UUID = Login.Login(username, password)
+        elif type == "register":
+            Login.Register(username, password)
+            self.logged_in, self.user_UUID = Login.Register(username, password)
+        else:
+            print("Invalid login/register type")
+        print(self.logged_in, self.user_UUID)
+        
+        if self.logged_in:
+            self.profile_window.login_window.destroy()
+            #Kill login window
+            #Output message box for successful login
+            #Run function for fetching user data and filling boxes
+            pass
+    
+    def load_user_data(self):
+        # Fetch user data and fill boxes
+        # Build modularly for universal use. (or not)
+        pass
+        
+        
+class ProfileWindow(ctk.CTkToplevel):
+    def __init__(self, main_instance, *args, fg_color = None, **kwargs):
+        super().__init__(*args, fg_color=fg_color, **kwargs)
+        self.main_instance = main_instance
+        
+        ######
+        #Profile Window
+        ######
+        
+        print("HEy")
+                
+        ##SETUP WINDOW
+        self.geometry("400x700")
+        self.overrideredirect(True)  # Remove title bar and "X" button
+
+        self.grid_columnconfigure(0, weight=1)
+        self.grid_columnconfigure(1, weight=0)
+        
+        self.login_window = None
+        self.draggable = DraggableWindow(self)
+        
+        ##FUNCTIONS
+        def on_close():
+            self.main_instance.on_profile_close()
+        
+        def open_login_window():
+            if self.login_window is None or not self.login_window.winfo_exists():
+                print("Opening Login Window")
+                self.login_window = LoginWindow(self)
+                self.login_window.protocol("WM_DELETE_WINDOW", self.on_login_close)
+            else:
+                print("Login window already open")
+                self.login_window.focus()
+                   
+        ##FRAMES
+        top_bar = ctk.CTkFrame(self, height=120, bg_color="transparent")#fg_color="transparent"
+
+        ##IMAGES
+        ximagemage_path = "Red_X.png"
+        pill_image = Image.open(ximagemage_path).resize((25,25))
+        XImage = ImageTk.PhotoImage(pill_image)
+        
+        ##BUTTONS
+        close_button = ctk.CTkButton(top_bar, text=None, width=70, bg_color="transparent", image=XImage,
+                                    fg_color="transparent", text_color="red", hover=None, command=on_close)
+        
+        login_button = ctk.CTkButton(top_bar, text="Login", width=100, height=50, bg_color="grey", fg_color="red", command=open_login_window)
+        
+        top_bar.bind("<ButtonPress-1>", self.draggable.start_drag)  # When mouse button is pressed
+        top_bar.bind("<B1-Motion>", self.draggable.do_drag)  # When mouse is moved with button pressed
+        
+        
+        
+        ##LAYOUT
+        top_bar.grid(row=0, column=0, sticky="ew")
+        close_button.grid(row=0, column=1, sticky="e", padx=(220,0), pady=10)
+        login_button.grid(row=0, column=0, sticky="w", padx=10, pady=10)
+
+    def on_login_close(self):
+        print("Login window closed")
+        self.login_window.destroy()
+        self.login_window = None
+    
+class LoginWindow(ctk.CTkToplevel):
+    def __init__(self, profile_instance, *args, fg_color = None, **kwargs):
+        super().__init__(*args, fg_color=fg_color, **kwargs)
+        self.profile_instance = profile_instance
+        
+        ######
+        #Login Window
+        ######
+                
+        ##SETUP WINDOW
+        self.geometry("400x300")
+        self.overrideredirect(True)  # Remove title bar and "X" button
+
+        self.grid_columnconfigure(0, weight=1)
+        self.grid_columnconfigure(1, weight=0)
+        
+        self.draggable = DraggableWindow(self)
+        
+        ##FUNCTIONS
+        def on_close():
+            self.profile_instance.on_login_close()
+        
+        def login_data_sender():
+            username = username_entry.get()
+            password = password_entry.get()
+            
+            user_data = pd.read_csv('user_data.csv')
+            user_pass = str(password)
+    
+            if (not user_pass.isspace() or not len(user_pass) < 8 or not len(user_pass) > 20 or not any(char.isupper() for char in user_pass)):
+                #Edit info prompts
+                pass
+            else:
+                print("Invalid Password!!")
+                #Edit info prompts
+                return
+        
+            self.profile_instance.main_instance.send_login_register_commands(username, password, type = "login")
+        
+        def register_account():
+            username = username_entry.get()
+            password = password_entry.get()
+            
+            user_data = pd.read_csv('user_data.csv')
+    
+            user_name = str(username)
+            
+            if user_name in user_data['Username'].values:
+                print("Username already exists!")
+                #Edit info prompts
+                return
+            user_pass = str(password)
+            
+            
+            if not user_pass or user_pass.isspace() or len(user_pass) < 8 or len(user_pass) > 20 or not any(char.isupper() for char in user_pass):
+                print("Invalid Password!!")
+                #Edit info prompts
+                return
+            else:
+                #Edit info prompts
+                pass
+            
+            self.profile_instance.main_instance.send_login_register_commands(username, password, type = "register")
+              
+        ##FRAMES
+        top_bar = ctk.CTkFrame(self, height=120, bg_color="transparent")#fg_color="transparent"
+
+        ##IMAGES
+        ximagemage_path = "Red_X.png"
+        pill_image = Image.open(ximagemage_path).resize((25,25))
+        XImage = ImageTk.PhotoImage(pill_image)
+        
+        ##BUTTONS
+        close_button = ctk.CTkButton(top_bar, text=None, width=70, bg_color="transparent", image=XImage,
+                                    fg_color="transparent", text_color="red", hover=None, command=on_close)
+        submit_button = ctk.CTkButton(self, text="Submit", width=100, height=50, bg_color="grey", 
+                                      fg_color="red", command=login_data_sender)
+        register_button = ctk.CTkButton(self, text="Click to Register with these details", width=100,
+                                        hover_color=None, fg_color="transparent", hover=None, 
+                                        command=register_account, text_color="red")
+        
+        ##ENTRYS
+        username_entry = ctk.CTkEntry(self, placeholder_text="Enter your username")
+        password_entry = ctk.CTkEntry(self, show="*", placeholder_text="Enter your password")
+        
+        top_bar.bind("<ButtonPress-1>", self.draggable.start_drag)  # When mouse button is pressed
+        top_bar.bind("<B1-Motion>", self.draggable.do_drag)  # When mouse is moved with button pressed
+        
+        ##LABELS
+        
+        user_hint = ctk.CTkLabel(self, text="Hey you")
+        
+        ##LAYOUT
+        top_bar.grid(row=0, column=0, sticky="ew")
+        close_button.grid(row=0, column=1, sticky="e", padx=(340,0), pady=10)
+        username_entry.grid(row=1, column=0, sticky="ew", pady=(30,10), padx=20)
+        password_entry.grid(row=2, column=0, sticky="ew", pady=10, padx=20)
+        submit_button.grid(row=4, column=0, sticky="ew", pady=10, padx=40)
+        user_hint.grid(row=3, column=0, sticky="ew", padx=20)
+        register_button.grid(row=5, column=0, sticky="ew")
+        
+class DraggableWindow():
+
+    def __init__(self, window):
+        self.window = window
+        self.drag_data = {'x': 0, 'y': 0}
+    def start_drag(self, event):
+        self.drag_data = {'x': event.x, 'y': event.y} 
+    
+    def do_drag(self, event):
+        delta_x = event.x - self.drag_data['x']
+        delta_y = event.y - self.drag_data['y']
+        new_x = self.window.winfo_x() + delta_x
+        new_y = self.window.winfo_y() + delta_y
+        self.window.geometry(f'+{new_x}+{new_y}')
+def main():
+    root=ctk.CTk()
+    root.overrideredirect(True)
+    window = Main(root)
+    window.grid(row=0, column=0)
+    
+    def get_pokemon_input(event):
+        print("Getting pokemon input")
+        pokemon = window.get_username()
+        print(f"Username: {pokemon}")
+    
+    window.master.bind('<Return>', get_pokemon_input)
+    
+    root.mainloop()
+    
+if __name__ == "__main__":
+    main()
+                </code></pre>
+            </div>
+        </div>
+        <div class="column-3">
+            <div class="page-content-2">
+                
+            </div>
+        </div>
     </div>
 </body>
+
+<footer>
+    <div class="footer-content">
+        <p>�� 2021 Website Sillyness. All rights reserved.</p>
+    </div>
+    <script src="script.js"></script> <!-- Add your JavaScript code here -->
+</footer>
 </html>
